@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{027D088A-8BE5-40AF-8032-669DA709AA56}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Script\Main.cs" />
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
+      <Link>Common\Packet\Enum\PacketEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
+      <Link>Common\Packet\Data\Login\LoginRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs">
+      <Link>Common\Packet\Data\Login\LoginRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
+      <Link>Common\Packet\Base\PacketBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketHandler.cs">
+      <Link>Common\Packet\Base\PacketHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
+      <Link>Common\Packet\Enum\ResultCode.cs</Link>
+    </Compile>
+    <Compile Include="Script\Config\Config.cs" />
+    <Compile Include="Script\PacketHandler\LoginHandler.cs" />
+    <Compile Include="Script\PacketHandler\PacketSelector.cs" />
+    <Compile Include="Script\GameServer\GameServer.cs" />
+    <Compile Include="Script\GameServer\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Script\" />
+    <Folder Include="Script\Config\" />
+    <Folder Include="Script\PacketHandler\" />
+    <Folder Include="Script\GameServer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Client\Assets\Script\Common\Packet.meta">
+      <Link>Common\Packet.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Base.meta">
+      <Link>Common\Packet\Base.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Data.meta">
+      <Link>Common\Packet\Data.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum.meta">
+      <Link>Common\Packet\Enum.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
+      <Link>Common\Packet\Enum\PacketEnum.cs.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login.meta">
+      <Link>Common\Packet\Data\Login.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
+      <Link>Common\Packet\Data\Login\LoginRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs.meta">
+      <Link>Common\Packet\Data\Login\LoginRp.cs.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketBase.cs.meta">
+      <Link>Common\Packet\Base\PacketBase.cs.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
+      <Link>Common\Packet\Base\PacketHandler.cs.meta</Link>
+    </None>
+    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
+      <Link>Common\Packet\Enum\ResultCode.cs.meta</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

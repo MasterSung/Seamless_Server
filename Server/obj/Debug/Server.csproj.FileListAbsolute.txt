@@ -1,0 +1,6 @@
+/Users/sung/Desktop/Develop/Server/Server/obj/Debug/Server.csproj.CoreCompileInputs.cache
+/Users/sung/Desktop/Develop/Server/Server/bin/Debug/Server.exe
+/Users/sung/Desktop/Develop/Server/Server/bin/Debug/Server.pdb
+/Users/sung/Desktop/Develop/Server/Server/obj/Debug/Server.exe
+/Users/sung/Desktop/Develop/Server/Server/obj/Debug/Server.pdb
+/Users/sung/Desktop/Develop/Server/Server/obj/Debug/Server.csprojAssemblyReference.cache
