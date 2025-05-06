@@ -32,29 +32,29 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Script\Main.cs" />
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
-      <Link>Common\Packet\Enum\PacketEnum.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
-      <Link>Common\Packet\Data\Login\LoginRq.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs">
-      <Link>Common\Packet\Data\Login\LoginRp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
-      <Link>Common\Packet\Base\PacketBase.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketHandler.cs">
-      <Link>Common\Packet\Base\PacketHandler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
-      <Link>Common\Packet\Enum\ResultCode.cs</Link>
-    </Compile>
     <Compile Include="Script\Config\Config.cs" />
     <Compile Include="Script\PacketHandler\LoginHandler.cs" />
     <Compile Include="Script\PacketHandler\PacketSelector.cs" />
     <Compile Include="Script\GameServer\GameServer.cs" />
     <Compile Include="Script\GameServer\User.cs" />
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
+      <Link>Common\Packet\Enum\PacketEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
+      <Link>Common\Packet\Enum\ResultCode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
+      <Link>Common\Packet\Data\Login\LoginRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs">
+      <Link>Common\Packet\Data\Login\LoginRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs">
+      <Link>Common\Packet\Base\PacketHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
+      <Link>Common\Packet\Base\PacketBase.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
@@ -63,38 +63,38 @@
     <Folder Include="Script\GameServer\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Client\Assets\Script\Common\Packet.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet.meta">
       <Link>Common\Packet.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Base.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base.meta">
       <Link>Common\Packet\Base.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Data.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data.meta">
       <Link>Common\Packet\Data.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum.meta">
       <Link>Common\Packet\Enum.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
+      <Link>Common\Packet\Enum\ResultCode.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
       <Link>Common\Packet\Enum\PacketEnum.cs.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login.meta">
       <Link>Common\Packet\Data\Login.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
       <Link>Common\Packet\Data\Login\LoginRq.cs.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs.meta">
       <Link>Common\Packet\Data\Login\LoginRp.cs.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketBase.cs.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs.meta">
       <Link>Common\Packet\Base\PacketBase.cs.meta</Link>
     </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
       <Link>Common\Packet\Base\PacketHandler.cs.meta</Link>
-    </None>
-    <None Include="..\..\Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
-      <Link>Common\Packet\Enum\ResultCode.cs.meta</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
