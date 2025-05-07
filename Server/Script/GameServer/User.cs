@@ -24,18 +24,21 @@ public class User
         if (!Add(inId, this))
             return false;
 
-        Console.WriteLine($"LogIn : {inId}");
         id = inId;
+        Console.WriteLine($"LogIn : {inId}");
 
         return true;
     }
 
     public void Release()
     {
-        Console.WriteLine($"LogOut : {id}");
         Client?.Close();
 
-        Remove(id);
+        if (!string.IsNullOrEmpty(id))
+        {
+            Console.WriteLine($"LogOut : {id}");
+            Remove(id);
+        }
     }
 
     static bool Add(string inId, User inUser)
@@ -45,6 +48,9 @@ public class User
 
     static bool Remove(string inId)
     {
+        if (string.IsNullOrEmpty(inId))
+            return false;
+
         return userDic.TryRemove(inId, out _);
     }
 }

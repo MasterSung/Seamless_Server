@@ -55,6 +55,37 @@
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
       <Link>Common\Packet\Base\PacketBase.cs</Link>
     </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
+      <Link>Common\Common\Packet\Enum\PacketEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
+      <Link>Common\Common\Packet\Enum\ResultCode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs">
+      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs">
+      <Link>Common\Common\Packet\Data\World\WorldMoveStartRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs">
+      <Link>Common\Common\Packet\Data\World\WorldMoveStartRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs">
+      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
+      <Link>Common\Common\Packet\Data\Login\LoginRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs">
+      <Link>Common\Common\Packet\Data\Login\LoginRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs">
+      <Link>Common\Common\Packet\Base\PacketHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
+      <Link>Common\Common\Packet\Base\PacketBase.cs</Link>
+    </Compile>
+    <Compile Include="Script\PacketHandler\WorldHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
@@ -95,6 +126,54 @@
     </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
       <Link>Common\Packet\Base\PacketHandler.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet.meta">
+      <Link>Common\Common\Packet.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base.meta">
+      <Link>Common\Common\Packet\Base.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data.meta">
+      <Link>Common\Common\Packet\Data.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum.meta">
+      <Link>Common\Common\Packet\Enum.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
+      <Link>Common\Common\Packet\Enum\ResultCode.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
+      <Link>Common\Common\Packet\Enum\PacketEnum.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login.meta">
+      <Link>Common\Common\Packet\Data\Login.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
+      <Link>Common\Common\Packet\Data\Login\LoginRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs.meta">
+      <Link>Common\Common\Packet\Data\Login\LoginRp.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs.meta">
+      <Link>Common\Common\Packet\Base\PacketBase.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
+      <Link>Common\Common\Packet\Base\PacketHandler.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World.meta">
+      <Link>Common\Common\Packet\Data\World.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs.meta">
+      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs.meta">
+      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRp.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs.meta">
+      <Link>Common\Common\Packet\Data\World\WorldMoveStartRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs.meta">
+      <Link>Common\Common\Packet\Data\World\WorldMoveStartRp.cs.meta</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

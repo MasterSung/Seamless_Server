@@ -75,11 +75,10 @@ public class GameServer : IDisposable
     {
         try
         {
-            NetworkStream stream = user.Stream;
             byte[] buffer = new byte[1024];
             int length;
 
-            while ((length = stream.Read(buffer, 0, buffer.Length)) != 0)
+            while ((length = user.Stream.Read(buffer, 0, buffer.Length)) != 0)
             {
                 byte[] data = new byte[length];
                 Array.Copy(buffer, data, length);

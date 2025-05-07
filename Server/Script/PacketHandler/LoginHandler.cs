@@ -4,11 +4,11 @@ public static class LoginHandler
 {
     public static void OnLoginRq(User inUser, PacketBase inPacket)
     {
-        LoginRq loginRq = inPacket as LoginRq;
+        var loginRq = inPacket as LoginRq;
         if (loginRq == null)
             return;
     
-        LoginRp loginRp = new LoginRp();
+        var loginRp = new LoginRp();
         loginRp.id = loginRq.id;
 
         if (string.IsNullOrEmpty(loginRq.id))

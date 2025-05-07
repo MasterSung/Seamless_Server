@@ -10,9 +10,10 @@ public static class PacketSelector
 
         switch (packet.PacketId)
         {
-            case PacketEnum.LOGIN_RQ:
-                LoginHandler.OnLoginRq(inUser, packet);
-                break;
+            case PacketEnum.LOGIN_RQ: LoginHandler.OnLoginRq(inUser, packet); break;
+
+            case PacketEnum.WORLD_MOVE_START_RQ: WorldHandler.OnWorldMoveStartRq(inUser, packet); break;
+            case PacketEnum.WORLD_MOVE_FINISH_RQ: WorldHandler.OnWorldMoveFinishRq(inUser, packet); break;
         }
     }
 
