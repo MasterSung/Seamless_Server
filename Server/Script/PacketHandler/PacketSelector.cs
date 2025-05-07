@@ -1,5 +1,9 @@
 ﻿using System;
 
+/// <summary>
+/// 클라이언트로부터 받는 패킷들만 정의
+/// </summary>
+
 public static class PacketSelector
 {
     public static void OnSendServer(User inUser, byte[] inData)
