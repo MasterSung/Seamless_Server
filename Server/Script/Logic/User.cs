@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
+using System.Collections.Generic;
 using System.Collections.Concurrent;
 
 public class User
@@ -13,6 +14,7 @@ public class User
     public string Id => id;
 
     static ConcurrentDictionary<string, User> userDic = new ConcurrentDictionary<string, User>();
+    public static ConcurrentDictionary<string, User> UserDic => userDic;
 
     public User(TcpClient inClient)
     {
@@ -37,20 +39,42 @@ public class User
         if (!string.IsNullOrEmpty(id))
         {
             Console.WriteLine($"LogOut : {id}");
+            ActionHandler.OnBroadcastSightLeaveNotify(this);
             Remove(id);
         }
     }
 
-    static bool Add(string inId, User inUser)
+    public static bool Add(string inId, User inUser)
     {
         return userDic.TryAdd(inId, inUser);
     }
 
-    static bool Remove(string inId)
+    public static bool Remove(string inId)
     {
         if (string.IsNullOrEmpty(inId))
             return false;
 
         return userDic.TryRemove(inId, out _);
+    }
+
+    public static List<PlayerInfo> GetPlayerInfoList(string inExceptionUserId = null)
+    {
+        var playerInfoList = new List<PlayerInfo>();
+
+        foreach (var pair in userDic)
+        {
+            if (pair.Value == null)
+                continue;
+
+            if (pair.Key.Equals(inExceptionUserId))
+                continue;
+
+            var playerInfo = new PlayerInfo();
+            playerInfo.id = pair.Key;
+
+            playerInfoList.Add(playerInfo);
+        }
+
+        return playerInfoList;
     }
 }

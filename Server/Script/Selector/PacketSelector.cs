@@ -24,5 +24,6 @@ public static class PacketSelector
     public static void OnSendClient(User inUser, byte[] inData)
     {
         inUser.Stream.Write(inData, 0, inData.Length);
+        inUser.Stream.Flush();
     }
 }
