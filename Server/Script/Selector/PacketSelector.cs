@@ -16,6 +16,8 @@ public static class PacketSelector
         {
             case PacketEnum.LOGIN_RQ: LoginHandler.OnLoginRq(inUser, packet); break;
 
+            case PacketEnum.MOVE_RQ: ActionHandler.OnMoveRq(inUser, packet); break;
+
             case PacketEnum.WORLD_MOVE_START_RQ: WorldHandler.OnWorldMoveStartRq(inUser, packet); break;
             case PacketEnum.WORLD_MOVE_FINISH_RQ: WorldHandler.OnWorldMoveFinishRq(inUser, packet); break;
         }
@@ -24,6 +26,19 @@ public static class PacketSelector
     public static void OnSendClient(User inUser, byte[] inData)
     {
         inUser.Stream.Write(inData, 0, inData.Length);
-        inUser.Stream.Flush();
+    }
+
+    public static void OnBroadcastClient(User inUser, byte[] inBuffer, bool inIsExceptionSelf = true)
+    {
+        foreach (var pair in User.UserDic)
+        {
+            if (inIsExceptionSelf)
+            {
+                if (inUser.Id.Equals(pair.Key))
+                    continue;
+            }
+
+            OnSendClient(pair.Value, inBuffer);
+        }
     }
 }

@@ -23,7 +23,6 @@ public static class WorldHandler
         worldMoveFinishRp.playerInfoList = User.GetPlayerInfoList(inUser.Id);
 
         PacketSelector.OnSendClient(inUser, worldMoveFinishRp.Serialize());
-
         ActionHandler.OnBroadcastSightEnterNotify(inUser);
     }
 }

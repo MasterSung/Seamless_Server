@@ -10,15 +10,7 @@ public static class ActionHandler
         var sightEnterNotify = new SightEnterNotify();
         sightEnterNotify.playerInfo = playerInfo;
 
-        var buffer = sightEnterNotify.Serialize();
-
-        foreach(var pair in User.UserDic)
-        {
-            if (inUser.Id.Equals(pair.Key))
-                continue;
-
-            PacketSelector.OnSendClient(pair.Value, buffer);
-        }
+        PacketSelector.OnBroadcastClient(inUser, sightEnterNotify.Serialize());
     }
 
     public static void OnBroadcastSightLeaveNotify(User inUser)
@@ -29,14 +21,28 @@ public static class ActionHandler
         var sightLeaveNotify = new SightLeaveNotify();
         sightLeaveNotify.playerInfo = playerInfo;
 
-        var buffer = sightLeaveNotify.Serialize();
+        PacketSelector.OnBroadcastClient(inUser, sightLeaveNotify.Serialize());
+    }
 
-        foreach (var pair in User.UserDic)
-        {
-            if (inUser.Id.Equals(pair.Key))
-                continue;
+    public static void OnMoveRq(User inUser, PacketBase inPacket)
+    {
+        var moveRq = inPacket as MoveRq;
+        if (moveRq == null)
+            return;
 
-            PacketSelector.OnSendClient(pair.Value, buffer);
-        }
+        if (string.IsNullOrEmpty(moveRq.moveInfo.id))
+            return;
+
+        inUser.SetPosition(moveRq.moveInfo.x, moveRq.moveInfo.y);
+
+        OnBroadcastMoveNotify(inUser, moveRq.moveInfo);
+    }
+
+    public static void OnBroadcastMoveNotify(User inUser, MoveInfo inMoveInfo)
+    {
+        var moveNotify = new MoveNotify();
+        moveNotify.moveInfo = inMoveInfo;
+
+        PacketSelector.OnBroadcastClient(inUser, moveNotify.Serialize());
     }
 }

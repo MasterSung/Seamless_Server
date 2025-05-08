@@ -13,6 +13,12 @@ public class User
     string id;
     public string Id => id;
 
+    float x;
+    public float X => x;
+
+    float y;
+    public float Y => y;
+
     static ConcurrentDictionary<string, User> userDic = new ConcurrentDictionary<string, User>();
     public static ConcurrentDictionary<string, User> UserDic => userDic;
 
@@ -42,6 +48,12 @@ public class User
             ActionHandler.OnBroadcastSightLeaveNotify(this);
             Remove(id);
         }
+    }
+
+    public void SetPosition(float inX, float inY)
+    {
+        x = inX;
+        y = inY;
     }
 
     public static bool Add(string inId, User inUser)

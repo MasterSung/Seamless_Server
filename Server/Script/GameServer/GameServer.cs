@@ -78,7 +78,7 @@ public class GameServer : IDisposable
             byte[] buffer = new byte[1024];
             int length;
 
-            while ((length = user.Stream.Read(buffer, 0, buffer.Length)) != 0)
+            while ((length = user != null ? user.Stream.Read(buffer, 0, buffer.Length) : 0) != 0)
             {
                 byte[] data = new byte[length];
                 Array.Copy(buffer, data, length);
@@ -92,7 +92,7 @@ public class GameServer : IDisposable
         }
         finally
         {
-            user.Release();
+            user?.Release();
         }
     }
 }

@@ -35,11 +35,39 @@
     <Compile Include="Script\Config\Config.cs" />
     <Compile Include="Script\PacketHandler\LoginHandler.cs" />
     <Compile Include="Script\GameServer\GameServer.cs" />
+    <Compile Include="Script\PacketHandler\WorldHandler.cs" />
+    <Compile Include="Script\Selector\PacketSelector.cs" />
+    <Compile Include="Script\Logic\User.cs" />
+    <Compile Include="Script\PacketHandler\ActionHandler.cs" />
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
       <Link>Common\Packet\Enum\PacketEnum.cs</Link>
     </Compile>
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
       <Link>Common\Packet\Enum\ResultCode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct\PlayerInfo.cs">
+      <Link>Common\Packet\Struct\PlayerInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct\MoveInfo.cs">
+      <Link>Common\Packet\Struct\MoveInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs">
+      <Link>Common\Packet\Data\World\WorldMoveFinishRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs">
+      <Link>Common\Packet\Data\World\WorldMoveStartRq.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs">
+      <Link>Common\Packet\Data\World\WorldMoveStartRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs">
+      <Link>Common\Packet\Data\World\WorldMoveFinishRp.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightEnterNotify.cs">
+      <Link>Common\Packet\Data\Action\SightEnterNotify.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightLeaveNotify.cs">
+      <Link>Common\Packet\Data\Action\SightLeaveNotify.cs</Link>
     </Compile>
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
       <Link>Common\Packet\Data\Login\LoginRq.cs</Link>
@@ -53,49 +81,12 @@
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
       <Link>Common\Packet\Base\PacketBase.cs</Link>
     </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs">
-      <Link>Common\Common\Packet\Enum\PacketEnum.cs</Link>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveNotify.cs">
+      <Link>Common\Packet\Data\Action\MoveNotify.cs</Link>
     </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs">
-      <Link>Common\Common\Packet\Enum\ResultCode.cs</Link>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveRq.cs">
+      <Link>Common\Packet\Data\Action\MoveRq.cs</Link>
     </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs">
-      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRq.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs">
-      <Link>Common\Common\Packet\Data\World\WorldMoveStartRq.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs">
-      <Link>Common\Common\Packet\Data\World\WorldMoveStartRp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs">
-      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs">
-      <Link>Common\Common\Packet\Data\Login\LoginRq.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs">
-      <Link>Common\Common\Packet\Data\Login\LoginRp.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs">
-      <Link>Common\Common\Packet\Base\PacketHandler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs">
-      <Link>Common\Common\Packet\Base\PacketBase.cs</Link>
-    </Compile>
-    <Compile Include="Script\PacketHandler\WorldHandler.cs" />
-    <Compile Include="Script\Selector\PacketSelector.cs" />
-    <Compile Include="Script\Logic\User.cs" />
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct\PlayerInfo.cs">
-      <Link>Common\Common\Packet\Struct\PlayerInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightEnterNotify.cs">
-      <Link>Common\Common\Packet\Data\Action\SightEnterNotify.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightLeaveNotify.cs">
-      <Link>Common\Common\Packet\Data\Action\SightLeaveNotify.cs</Link>
-    </Compile>
-    <Compile Include="Script\PacketHandler\ActionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
@@ -118,14 +109,44 @@
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum.meta">
       <Link>Common\Packet\Enum.meta</Link>
     </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct.meta">
+      <Link>Common\Packet\Struct.meta</Link>
+    </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
       <Link>Common\Packet\Enum\ResultCode.cs.meta</Link>
     </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
       <Link>Common\Packet\Enum\PacketEnum.cs.meta</Link>
     </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct\PlayerInfo.cs.meta">
+      <Link>Common\Packet\Struct\PlayerInfo.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World.meta">
+      <Link>Common\Packet\Data\World.meta</Link>
+    </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login.meta">
       <Link>Common\Packet\Data\Login.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action.meta">
+      <Link>Common\Packet\Data\Action.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs.meta">
+      <Link>Common\Packet\Data\World\WorldMoveFinishRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs.meta">
+      <Link>Common\Packet\Data\World\WorldMoveFinishRp.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs.meta">
+      <Link>Common\Packet\Data\World\WorldMoveStartRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs.meta">
+      <Link>Common\Packet\Data\World\WorldMoveStartRp.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightEnterNotify.cs.meta">
+      <Link>Common\Packet\Data\Action\SightEnterNotify.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightLeaveNotify.cs.meta">
+      <Link>Common\Packet\Data\Action\SightLeaveNotify.cs.meta</Link>
     </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
       <Link>Common\Packet\Data\Login\LoginRq.cs.meta</Link>
@@ -139,68 +160,11 @@
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
       <Link>Common\Packet\Base\PacketHandler.cs.meta</Link>
     </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet.meta">
-      <Link>Common\Common\Packet.meta</Link>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveNotify.cs.meta">
+      <Link>Common\Packet\Data\Action\MoveNotify.cs.meta</Link>
     </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base.meta">
-      <Link>Common\Common\Packet\Base.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data.meta">
-      <Link>Common\Common\Packet\Data.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum.meta">
-      <Link>Common\Common\Packet\Enum.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\ResultCode.cs.meta">
-      <Link>Common\Common\Packet\Enum\ResultCode.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Enum\PacketEnum.cs.meta">
-      <Link>Common\Common\Packet\Enum\PacketEnum.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login.meta">
-      <Link>Common\Common\Packet\Data\Login.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRq.cs.meta">
-      <Link>Common\Common\Packet\Data\Login\LoginRq.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Login\LoginRp.cs.meta">
-      <Link>Common\Common\Packet\Data\Login\LoginRp.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketBase.cs.meta">
-      <Link>Common\Common\Packet\Base\PacketBase.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Base\PacketHandler.cs.meta">
-      <Link>Common\Common\Packet\Base\PacketHandler.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World.meta">
-      <Link>Common\Common\Packet\Data\World.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRq.cs.meta">
-      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRq.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveFinishRp.cs.meta">
-      <Link>Common\Common\Packet\Data\World\WorldMoveFinishRp.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRq.cs.meta">
-      <Link>Common\Common\Packet\Data\World\WorldMoveStartRq.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\World\WorldMoveStartRp.cs.meta">
-      <Link>Common\Common\Packet\Data\World\WorldMoveStartRp.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct.meta">
-      <Link>Common\Common\Packet\Struct.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Struct\PlayerInfo.cs.meta">
-      <Link>Common\Common\Packet\Struct\PlayerInfo.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action.meta">
-      <Link>Common\Common\Packet\Data\Action.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightEnterNotify.cs.meta">
-      <Link>Common\Common\Packet\Data\Action\SightEnterNotify.cs.meta</Link>
-    </None>
-    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SightLeaveNotify.cs.meta">
-      <Link>Common\Common\Packet\Data\Action\SightLeaveNotify.cs.meta</Link>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveRq.cs.meta">
+      <Link>Common\Packet\Data\Action\MoveRq.cs.meta</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
