@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -36,7 +37,7 @@ public class GameServer : IDisposable
     {
         try
         {
-            listener = new TcpListener(Config.IP, Config.Port);
+            listener = new TcpListener(IPAddress.Any, Config.Port);
             listener.Start();
 
             while (isRunning)
