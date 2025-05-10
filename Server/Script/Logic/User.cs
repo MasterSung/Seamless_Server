@@ -83,6 +83,8 @@ public class User
 
             var playerInfo = new PlayerInfo();
             playerInfo.id = pair.Key;
+            playerInfo.x = pair.Value.X;
+            playerInfo.y = pair.Value.Y;
 
             playerInfoList.Add(playerInfo);
         }

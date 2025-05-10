@@ -4,22 +4,20 @@ public static class ActionHandler
 {
     public static void OnBroadcastSightEnterNotify(User inUser)
     {
-        var playerInfo = new PlayerInfo();
-        playerInfo.id = inUser.Id;
-
         var sightEnterNotify = new SightEnterNotify();
-        sightEnterNotify.playerInfo = playerInfo;
+        sightEnterNotify.playerInfo.id = inUser.Id;
+        sightEnterNotify.playerInfo.x = inUser.X;
+        sightEnterNotify.playerInfo.y = inUser.Y;
 
         PacketSelector.OnBroadcastClient(inUser, sightEnterNotify.Serialize());
     }
 
     public static void OnBroadcastSightLeaveNotify(User inUser)
     {
-        var playerInfo = new PlayerInfo();
-        playerInfo.id = inUser.Id;
-
         var sightLeaveNotify = new SightLeaveNotify();
-        sightLeaveNotify.playerInfo = playerInfo;
+        sightLeaveNotify.playerInfo.id = inUser.Id;
+        sightLeaveNotify.playerInfo.x = inUser.X;
+        sightLeaveNotify.playerInfo.y = inUser.Y;
 
         PacketSelector.OnBroadcastClient(inUser, sightLeaveNotify.Serialize());
     }
