@@ -20,9 +20,10 @@ public static class WorldHandler
             return;
 
         var worldMoveFinishRp = new WorldMoveFinishRp();
-        worldMoveFinishRp.playerInfoList = User.GetPlayerInfoList(inUser.Id);
 
         PacketSelector.OnSendClient(inUser, worldMoveFinishRp.Serialize());
+
+        ActionHandler.OnSendSpawnEnterNotify(inUser);
         ActionHandler.OnBroadcastSightEnterNotify(inUser);
     }
 }

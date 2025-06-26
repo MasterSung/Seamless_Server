@@ -87,6 +87,12 @@
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveRq.cs">
       <Link>Common\Packet\Data\Action\MoveRq.cs</Link>
     </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SpawnEnterNotify.cs">
+      <Link>Common\Packet\Data\Action\SpawnEnterNotify.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SpawnLeaveNotify.cs">
+      <Link>Common\Packet\Data\Action\SpawnLeaveNotify.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
@@ -165,6 +171,12 @@
     </None>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\MoveRq.cs.meta">
       <Link>Common\Packet\Data\Action\MoveRq.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SpawnEnterNotify.cs.meta">
+      <Link>Common\Packet\Data\Action\SpawnEnterNotify.cs.meta</Link>
+    </None>
+    <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SpawnLeaveNotify.cs.meta">
+      <Link>Common\Packet\Data\Action\SpawnLeaveNotify.cs.meta</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

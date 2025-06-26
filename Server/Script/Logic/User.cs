@@ -5,6 +5,9 @@ using System.Collections.Concurrent;
 
 public class User
 {
+    static ConcurrentDictionary<string, User> userDic = new ConcurrentDictionary<string, User>();
+    public static ConcurrentDictionary<string, User> UserDic => userDic;
+
     public TcpClient client;
     public TcpClient Client => client;
 
@@ -19,8 +22,8 @@ public class User
     float y;
     public float Y => y;
 
-    static ConcurrentDictionary<string, User> userDic = new ConcurrentDictionary<string, User>();
-    public static ConcurrentDictionary<string, User> UserDic => userDic;
+    int cellIdx;
+    public int CellIdx => cellIdx;
 
     public User(TcpClient inClient)
     {
@@ -52,8 +55,31 @@ public class User
 
     public void SetPosition(float inX, float inY)
     {
+        int prevCellIdx = CalcCellIdx(x, y);
+        int nextCellIdx = CalcCellIdx(inX, inY);
+
+        if (prevCellIdx != nextCellIdx)
+        {
+            ActionHandler.OnBroadcastSightLeaveNotify(this);
+            ActionHandler.OnSendSpawnLeaveNotify(this);
+        }
+
         x = inX;
         y = inY;
+
+        if (prevCellIdx != nextCellIdx)
+        {
+            cellIdx = nextCellIdx;
+            ActionHandler.OnBroadcastSightEnterNotify(this);
+            ActionHandler.OnSendSpawnEnterNotify(this);
+        }
+    }
+
+    public int CalcCellIdx(float inX, float inY)
+    {
+        (int col, int row) position = ((int)inX / Config.CellSize, (int)inY / Config.CellSize);
+
+        return position.col + (position.row * 10);
     }
 
     public static bool Add(string inId, User inUser)

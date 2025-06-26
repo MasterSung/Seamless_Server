@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 
 /// <summary>
 /// 클라이언트로부터 받는 패킷들만 정의
@@ -25,7 +25,18 @@ public static class PacketSelector
 
     public static void OnSendClient(User inUser, byte[] inData)
     {
-        inUser.Stream.Write(inData, 0, inData.Length);
+        if (inUser.Stream != null)
+            inUser.Stream.Write(inData, 0, inData.Length);
+
+        //using (MemoryStream ms = new MemoryStream())
+        //using (BinaryWriter writer = new BinaryWriter(ms))
+        //{
+        //    writer.Write(inData.Length);
+        //    writer.Write(inData);
+
+        //    byte[] frame = ms.ToArray();
+        //    inUser.Stream.Write(frame, 0, frame.Length);
+        //}
     }
 
     public static void OnBroadcastClient(User inUser, byte[] inBuffer, bool inIsExceptionSelf = true)
@@ -37,6 +48,9 @@ public static class PacketSelector
                 if (inUser.Id.Equals(pair.Key))
                     continue;
             }
+
+            if (inUser.CellIdx != pair.Value.CellIdx)
+                continue;
 
             OnSendClient(pair.Value, inBuffer);
         }

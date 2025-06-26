@@ -22,6 +22,21 @@ public static class ActionHandler
         PacketSelector.OnBroadcastClient(inUser, sightLeaveNotify.Serialize());
     }
 
+    public static void OnSendSpawnEnterNotify(User inUser)
+    {
+        var spawnEnterNotify = new SpawnEnterNotify();
+        spawnEnterNotify.playerInfoList = User.GetPlayerInfoList(inUser.Id);
+
+        PacketSelector.OnSendClient(inUser, spawnEnterNotify.Serialize());
+    }
+
+    public static void OnSendSpawnLeaveNotify(User inUser)
+    {
+        var spawnLeaveNotify = new SpawnLeaveNotify();
+
+        PacketSelector.OnSendClient(inUser, spawnLeaveNotify.Serialize());
+    }
+
     public static void OnMoveRq(User inUser, PacketBase inPacket)
     {
         var moveRq = inPacket as MoveRq;
