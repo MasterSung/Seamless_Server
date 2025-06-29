@@ -76,95 +76,8 @@ public class User
             ActionHandler.OnBroadcastSightEnterNotify(this, GetMoveNearCell(this, true, moveCellIdx));
             ActionHandler.OnSendSpawnEnterNotify(this, moveCellIdx);
         }
-    }
 
-    public static (int c, int r) CalcCellIdx(float inX, float inY)
-    {
-        return ((int)inX / Config.CellSize, (int)inY / Config.CellSize);
-    }
-
-    public static bool IsNearCell((int c, int r) inUserCellIdx, (int c, int r) inCompareCellIdx)
-    {
-        return (inUserCellIdx.c - 1 == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
-               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
-               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
-               (inUserCellIdx.c - 1 == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
-               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
-               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
-               (inUserCellIdx.c - 1 == inCompareCellIdx.c && inUserCellIdx.r - 1 == inCompareCellIdx.r) ||
-               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r - 1 == inCompareCellIdx.r) ||
-               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r - 1 == inCompareCellIdx.r);
-    }
-
-    public static List<(int c, int r)> GetMoveNearCell(User inUser, bool isFuture, (int c, int r) moveCellIdx)
-    {
-        var cellIdxList = new List<(int c, int r)>();
-        var currentCellIdx = inUser.CellIdx;
-
-        if (isFuture)
-        {
-            // 오른쪽으로 이동
-            if (moveCellIdx.c > 0)
-            {
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r - 1));
-            }
-            // 왼쪽으로 이동
-            else if (moveCellIdx.c < 0)
-            {
-                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r));
-                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r - 1));
-            }
-            // 위로 이동
-            else if (moveCellIdx.r > 0)
-            {
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
-            }
-            // 아래로 이동
-            else if (moveCellIdx.r < 0)
-            {
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r + -1));
-                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + -1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + -1));
-            }
-        }
-        else
-        {
-            // 오른쪽으로 이동
-            if (moveCellIdx.c > 0)
-            {
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r));
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r - 1));
-            }
-            // 왼쪽으로 이동
-            else if (moveCellIdx.c < 0)
-            {
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r - 1));
-            }
-            // 위로 이동
-            else if (moveCellIdx.r > 0)
-            {
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r - 1));
-                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r - 1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r - 1));
-            }
-            // 아래로 이동
-            else if (moveCellIdx.r < 0)
-            {
-                cellIdxList.Add((currentCellIdx.c - 1, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + 1));
-                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
-            }
-        }
-
-        return cellIdxList;
+        //Console.WriteLine($"x:{inX} y:{inY} / c:{nextCellIdx.c} r:{nextCellIdx.r}");
     }
 
     public static bool Add(User inUser)
@@ -178,6 +91,97 @@ public class User
             return false;
 
         return userDic.TryRemove(inId, out _);
+    }
+
+    public static (int c, int r) CalcCellIdx(float inX, float inY)
+    {
+        return ((int)Math.Floor(inX / Config.CellSize), (int)Math.Floor(inY / Config.CellSize));
+    }
+
+    public static bool IsNearCell((int c, int r) inUserCellIdx, (int c, int r) inCompareCellIdx)
+    {
+        return (inUserCellIdx.c + -1 == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
+               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
+               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r + 1 == inCompareCellIdx.r) ||
+               (inUserCellIdx.c + -1 == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
+               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
+               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r == inCompareCellIdx.r) ||
+               (inUserCellIdx.c + -1 == inCompareCellIdx.c && inUserCellIdx.r + -1 == inCompareCellIdx.r) ||
+               (inUserCellIdx.c == inCompareCellIdx.c && inUserCellIdx.r + -1 == inCompareCellIdx.r) ||
+               (inUserCellIdx.c + 1 == inCompareCellIdx.c && inUserCellIdx.r + -1 == inCompareCellIdx.r);
+    }
+
+    public static List<(int c, int r)> GetMoveNearCell(User inUser, bool isEnter, (int c, int r) moveCellIdx)
+    {
+        var cellIdxList = new List<(int c, int r)>();
+        var currentCellIdx = inUser.CellIdx;
+
+        if (isEnter)
+        {
+            // 오른쪽으로 이동
+            if (moveCellIdx.c > 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + -1));
+            }
+            // 왼쪽으로 이동
+            else if (moveCellIdx.c < 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r));
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + -1));
+            }
+
+            // 위로 이동
+            if (moveCellIdx.r > 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
+            }
+            // 아래로 이동
+            else if (moveCellIdx.r < 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + -1));
+                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + -1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + -1));
+            }
+        }
+        else
+        {
+            // 오른쪽으로 이동
+            if (moveCellIdx.c > 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r));
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + -1));
+            }
+            // 왼쪽으로 이동
+            else if (moveCellIdx.c < 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + -1));
+            }
+
+            // 위로 이동
+            if (moveCellIdx.r > 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + -1));
+                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + -1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + -1));
+            }
+            // 아래로 이동
+            else if (moveCellIdx.r < 0)
+            {
+                cellIdxList.Add((currentCellIdx.c + -1, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c, currentCellIdx.r + 1));
+                cellIdxList.Add((currentCellIdx.c + 1, currentCellIdx.r + 1));
+            }
+        }
+
+        return cellIdxList;
     }
 
     public static List<PlayerInfo> GetAddPlayerInfoList(User inUser, (int c, int r) moveCellIdx)
@@ -208,28 +212,28 @@ public class User
             {
                 isCondition = (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
                               (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r == targetCellIdx.r) ||
-                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r - 1 == targetCellIdx.r);
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
             }
             // 왼쪽으로 이동
             else if (moveCellIdx.c < 0)
             {
-                isCondition = (cellIdx.c - 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
-                              (cellIdx.c - 1 == targetCellIdx.c && cellIdx.r == targetCellIdx.r) ||
-                              (cellIdx.c - 1 == targetCellIdx.c && cellIdx.r - 1 == targetCellIdx.r);
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                              (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r == targetCellIdx.r) ||
+                              (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
             }
             // 위로 이동
             else if (moveCellIdx.r > 0)
             {
-                isCondition = (cellIdx.c - 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
                               (cellIdx.c == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
                               (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r);
             }
             // 아래로 이동
             else if (moveCellIdx.r < 0)
             {
-                isCondition = (cellIdx.c - 1 == targetCellIdx.c && cellIdx.r - 1 == targetCellIdx.r) ||
-                              (cellIdx.c == targetCellIdx.c && cellIdx.r - 1 == targetCellIdx.r) ||
-                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r - 1 == targetCellIdx.r);
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r) ||
+                              (cellIdx.c == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r) ||
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
             }
 
             if (!isCondition)
@@ -254,19 +258,6 @@ public class User
 
         (int c, int r) cellIdx = CalcCellIdx(inUser.X, inUser.Y);
 
-        // 오른쪽으로 이동
-        if (moveCellIdx.c > 0)
-            cellIdx.c -= 1;
-        // 왼쪽으로 이동
-        else if (moveCellIdx.c < 0)
-            cellIdx.c += 1;
-        // 위로 이동
-        else if (moveCellIdx.r > 0)
-            cellIdx.r -= 1;
-        // 아래로 이동
-        else if (moveCellIdx.r < 0)
-            cellIdx.r += 1;
-
         foreach (var pair in userDic)
         {
             var targetUser = pair.Value;
@@ -277,7 +268,38 @@ public class User
                 continue;
 
             var targetCellIdx = CalcCellIdx(targetUser.X, targetUser.Y);
-            if (targetCellIdx != cellIdx)
+            bool isCondition = false;
+
+            // 오른쪽으로 이동
+            if (moveCellIdx.c > 0)
+            {
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                              (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r == targetCellIdx.r) ||
+                              (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
+            }
+            // 왼쪽으로 이동
+            else if (moveCellIdx.c < 0)
+            {
+                isCondition = (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r == targetCellIdx.r) ||
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
+            }
+            // 위로 이동
+            else if (moveCellIdx.r > 0)
+            {
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r) ||
+                              (cellIdx.c == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r) ||
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + -1 == targetCellIdx.r);
+            }
+            // 아래로 이동
+            else if (moveCellIdx.r < 0)
+            {
+                isCondition = (cellIdx.c + -1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                              (cellIdx.c == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r) ||
+                              (cellIdx.c + 1 == targetCellIdx.c && cellIdx.r + 1 == targetCellIdx.r);
+            }
+
+            if (!isCondition)
                 continue;
 
             removePlayerIdList.Add(targetUser.Id);
