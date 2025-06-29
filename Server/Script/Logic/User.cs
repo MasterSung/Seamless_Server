@@ -75,7 +75,7 @@ public class User
         }
     }
 
-    public int CalcCellIdx(float inX, float inY)
+    public static int CalcCellIdx(float inX, float inY)
     {
         (int col, int row) position = ((int)inX / Config.CellSize, (int)inY / Config.CellSize);
 
@@ -95,22 +95,31 @@ public class User
         return userDic.TryRemove(inId, out _);
     }
 
-    public static List<PlayerInfo> GetPlayerInfoList(string inExceptionUserId = null)
+    public static List<PlayerInfo> GetPlayerInfoList(User inExceptionUser)
     {
         var playerInfoList = new List<PlayerInfo>();
+        if (inExceptionUser == null)
+            return playerInfoList;
+
+        int cellIdx = CalcCellIdx(inExceptionUser.X, inExceptionUser.Y);
 
         foreach (var pair in userDic)
         {
-            if (pair.Value == null)
+            var targetUser = pair.Value;
+            if (targetUser == null)
                 continue;
 
-            if (pair.Key.Equals(inExceptionUserId))
+            if (pair.Key.Equals(inExceptionUser.Id))
+                continue;
+
+            int targetCellIdx = CalcCellIdx(targetUser.X, targetUser.Y);
+            if (targetCellIdx != cellIdx)
                 continue;
 
             var playerInfo = new PlayerInfo();
             playerInfo.id = pair.Key;
-            playerInfo.x = pair.Value.X;
-            playerInfo.y = pair.Value.Y;
+            playerInfo.x = targetUser.X;
+            playerInfo.y = targetUser.Y;
 
             playerInfoList.Add(playerInfo);
         }

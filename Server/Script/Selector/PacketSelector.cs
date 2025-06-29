@@ -25,18 +25,17 @@ public static class PacketSelector
 
     public static void OnSendClient(User inUser, byte[] inData)
     {
-        if (inUser.Stream != null)
-            inUser.Stream.Write(inData, 0, inData.Length);
+        if (inUser.Stream == null)
+            return;
 
-        //using (MemoryStream ms = new MemoryStream())
-        //using (BinaryWriter writer = new BinaryWriter(ms))
-        //{
-        //    writer.Write(inData.Length);
-        //    writer.Write(inData);
-
-        //    byte[] frame = ms.ToArray();
-        //    inUser.Stream.Write(frame, 0, frame.Length);
-        //}
+        using (MemoryStream ms = new MemoryStream())
+        using (BinaryWriter writer = new BinaryWriter(ms))
+        {
+            writer.Write(inData.Length);
+            writer.Write(inData);
+            byte[] framed = ms.ToArray();
+            inUser.Stream.Write(framed, 0, framed.Length);
+        }
     }
 
     public static void OnBroadcastClient(User inUser, byte[] inBuffer, bool inIsExceptionSelf = true)

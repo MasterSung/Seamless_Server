@@ -25,7 +25,7 @@ public static class ActionHandler
     public static void OnSendSpawnEnterNotify(User inUser)
     {
         var spawnEnterNotify = new SpawnEnterNotify();
-        spawnEnterNotify.playerInfoList = User.GetPlayerInfoList(inUser.Id);
+        spawnEnterNotify.playerInfoList = User.GetPlayerInfoList(inUser);
 
         PacketSelector.OnSendClient(inUser, spawnEnterNotify.Serialize());
     }
