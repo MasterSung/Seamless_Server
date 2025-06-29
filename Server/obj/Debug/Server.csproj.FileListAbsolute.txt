@@ -9,3 +9,4 @@
 /Users/sung/Desktop/Develop/ProjectA_Server/Server/obj/Debug/Server.csproj.CoreCompileInputs.cache
 /Users/sung/Desktop/Develop/ProjectA_Server/Server/obj/Debug/Server.exe
 /Users/sung/Desktop/Develop/ProjectA_Server/Server/obj/Debug/Server.pdb
+/Users/sung/Desktop/Develop/ProjectA_Server/Server/obj/Debug/Server.csprojAssemblyReference.cache

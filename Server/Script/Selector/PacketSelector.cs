@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Collections.Generic;
 
 /// <summary>
 /// 클라이언트로부터 받는 패킷들만 정의
@@ -40,6 +41,8 @@ public static class PacketSelector
 
     public static void OnBroadcastClient(User inUser, byte[] inBuffer, bool inIsExceptionSelf = true)
     {
+        var userCellIdx = User.CalcCellIdx(inUser.X, inUser.Y);
+
         foreach (var pair in User.UserDic)
         {
             if (inIsExceptionSelf)
@@ -48,10 +51,33 @@ public static class PacketSelector
                     continue;
             }
 
-            if (inUser.CellIdx != pair.Value.CellIdx)
+            if (!User.IsNearCell(userCellIdx, pair.Value.CellIdx))
                 continue;
 
             OnSendClient(pair.Value, inBuffer);
+        }
+    }
+
+    public static void OnBroadcastClient(User inUser, byte[] inBuffer, List<(int c, int r)> inSendCellIdxList)
+    {
+        foreach (var pair in User.UserDic)
+        {
+            if (inUser.Id.Equals(pair.Key))
+                continue;
+
+            if (inSendCellIdxList.Count <= 0)
+            {
+                if (User.IsNearCell(inUser.CellIdx, pair.Value.CellIdx))
+                    OnSendClient(pair.Value, inBuffer);
+            }
+            else
+            {
+                foreach (var compareCellIdx in inSendCellIdxList)
+                {
+                    if (pair.Value.CellIdx == compareCellIdx)
+                        OnSendClient(pair.Value, inBuffer);
+                }
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 public static class WorldHandler
 {
@@ -23,7 +23,7 @@ public static class WorldHandler
 
         PacketSelector.OnSendClient(inUser, worldMoveFinishRp.Serialize());
 
-        ActionHandler.OnSendSpawnEnterNotify(inUser);
-        ActionHandler.OnBroadcastSightEnterNotify(inUser);
+        ActionHandler.OnSendSpawnEnterNotify(inUser, (0, 0));
+        ActionHandler.OnBroadcastSightEnterNotify(inUser, new List<(int c, int r)>());
     }
 }
