@@ -93,6 +93,7 @@
     <Compile Include="..\..\ProjectA_Client\Assets\Script\Common\Packet\Data\Action\SpawnLeaveNotify.cs">
       <Link>Common\Packet\Data\Action\SpawnLeaveNotify.cs</Link>
     </Compile>
+    <Compile Include="Script\Util\IndexUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
@@ -101,6 +102,7 @@
     <Folder Include="Script\GameServer\" />
     <Folder Include="Script\Selector\" />
     <Folder Include="Script\Logic\" />
+    <Folder Include="Script\Util\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ProjectA_Client\Assets\Script\Common\Packet.meta">

@@ -41,7 +41,7 @@ public static class PacketSelector
 
     public static void OnBroadcastClient(User inUser, byte[] inBuffer, bool inIsExceptionSelf = true)
     {
-        var userCellIdx = User.CalcCellIdx(inUser.X, inUser.Y);
+        var userCellIdx = IndexUtil.CalcCellIdx(inUser.X, inUser.Y);
 
         foreach (var pair in User.UserDic)
         {
@@ -51,7 +51,7 @@ public static class PacketSelector
                     continue;
             }
 
-            if (!User.IsNearCell(userCellIdx, pair.Value.CellIdx))
+            if (!IndexUtil.IsNearCell(userCellIdx, pair.Value.CellIdx))
                 continue;
 
             OnSendClient(pair.Value, inBuffer);
@@ -67,7 +67,7 @@ public static class PacketSelector
 
             if (inSendCellIdxList.Count <= 0)
             {
-                if (User.IsNearCell(inUser.CellIdx, pair.Value.CellIdx))
+                if (IndexUtil.IsNearCell(inUser.CellIdx, pair.Value.CellIdx))
                     OnSendClient(pair.Value, inBuffer);
             }
             else

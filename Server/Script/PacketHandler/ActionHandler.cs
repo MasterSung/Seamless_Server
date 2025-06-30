@@ -25,7 +25,7 @@ public static class ActionHandler
     public static void OnSendSpawnEnterNotify(User inUser, (int c, int r) moveCellIdx)
     {
         var spawnEnterNotify = new SpawnEnterNotify();
-        spawnEnterNotify.playerInfoList = User.GetAddPlayerInfoList(inUser, moveCellIdx);
+        spawnEnterNotify.playerInfoList = IndexUtil.GetAddPlayerInfoList(inUser, moveCellIdx);
 
         PacketSelector.OnSendClient(inUser, spawnEnterNotify.Serialize());
     }
@@ -33,7 +33,7 @@ public static class ActionHandler
     public static void OnSendSpawnLeaveNotify(User inUser, (int c, int r) moveCellIdx)
     {
         var spawnLeaveNotify = new SpawnLeaveNotify();
-        spawnLeaveNotify.removePlayerIdList = User.GetRemovePlayerIdList(inUser, moveCellIdx);
+        spawnLeaveNotify.removePlayerIdList = IndexUtil.GetRemovePlayerIdList(inUser, moveCellIdx);
 
         PacketSelector.OnSendClient(inUser, spawnLeaveNotify.Serialize());
     }
